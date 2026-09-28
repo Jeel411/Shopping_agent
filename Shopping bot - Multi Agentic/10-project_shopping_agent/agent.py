@@ -170,19 +170,20 @@ agent = create_agent(
 )
 
 if __name__=="__main__":
-    image_path= os.path.join("resources","oats.png")
-    response = describe_image(image_path)
-    print(response)
-    #result = agent.invoke(
-    #    {
-    #        "messages": [
-    #            {
-    #                "role":"user",
-    #                "content": (
-    #                    "I want to buy coconut oil with less than $20 price"
-    #                )
-    #            }
-    #        ]
-    #    }
-    #)
-    #print(result["messages"][-1].content[-1]["text"])
+    #this is good habbit to provide path like this, we are tessing image tool using this commands but it is not working. getting "'StructuredTool' object is not callable" error.
+    #image_path= os.path.join("resources","oats.png")
+    #response = describe_image(image_path)
+    #print(response)
+    result = agent.invoke(
+        {
+            "messages": [
+                {
+                    "role":"user",
+                    "content": (
+                        "I want to buy coconut oil with less than $20 price"
+                    )
+                }
+            ]
+        }
+    )
+    print(result["messages"][-1].content[-1]["text"]) 
